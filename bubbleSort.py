@@ -1,6 +1,7 @@
 # Bubble sort uses two for loops
 # O(n**2)
 
+
 def bubbleSort(A):
    print "Sorting intput List:"
    print A
