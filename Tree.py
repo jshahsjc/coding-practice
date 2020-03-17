@@ -76,6 +76,20 @@ class Tree:
          if self.right:
             self.right.inorder()
 
+def getdiameter(node):
+   left_height = 0
+   right_height = 0
+   if node is not None:
+      if node.left:
+         left_height = node.left.getheight()
+      if node.right:
+         right_height = node.right.getheight()
+      root_path = 1 + left_height + right_height
+      sub_path = max(getdiameter(node.left), getdiameter(node.right))
+      return max(root_path, sub_path)
+   else:
+      return 0
+
 t = Tree(100)
 L = [20, 1, 5, 144, 566, 1, 35, 50, 1004, 2402, 596]
 for k in L:
@@ -90,6 +104,8 @@ print "From 50 to 1000, these data found in the tree" + str(res)
 print "size of the tree is: " +str(t.getsize())
 
 print "Height of the tree is: " + str(t.getheight())
+
+print "Diameter of the tree is: " + str(getdiameter(t))
 
 print "Preorder Tree:"
 t.preorder()
