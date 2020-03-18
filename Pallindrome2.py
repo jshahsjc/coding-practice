@@ -22,36 +22,41 @@ function3:
 """
 
 def check_if_pallindrome(S):
-   pal = False
+   pal = True
    i, j = 0, len(S)-1
-   while i <= j:
+   while i < j:
       if S[i] == S[j]:
+      #   print "inside check_if_pallindrome: S[i]:"+S[i]
+      #   print "inside check_if_pallindrome: S[i]:"+S[j]
          i += 1
          j -= 1
-         pal = True
       else:
+         pal = False
          break
    return pal
 
-# print check_if_pallindrome("wowatsiraristawo")
+#print check_if_pallindrome("aassaa")
 
 def pallindrome_after_char_removed(S):
-   res = { k : v for k, v in enumerate(S) }
-   for k, v in res.items():
-      temp_str = ''
-      for num in range(len(res)):
-         if num is not k:
-            temp_str = temp_str + res[num]
-            print temp_str
-      if check_if_pallindrome(temp_str):
-         print "%s is pallindrome, after removing %s from %s." %(temp_str, v, S)
-         return True
-         # return pallindrome string and the removed character
-         break
+   if not check_if_pallindrome(S):
+      res = { k : v for k, v in enumerate(S) }
+      for k, v in res.items():
+         temp_str = ''
+         for num in range(len(res)):
+            if num is not k:
+               temp_str = temp_str + res[num]
+               print temp_str
+         if check_if_pallindrome(temp_str):
+            print "%s is pallindrome, after removing %s from %s." %(temp_str, v, S)
+            return True
+            # return pallindrome string and the removed character
+            break
+      else:
+         print "%s cannot be a pallindrome with 1 char removed."%S
+         return False
    else:
-      print "%s cannot be a pallindrome with 1 char removed."%S
-      return False
+      print "%s is a pallindrome itself. Nothing removed."%S
+      return True
 
-
-t = 'assaa'
+t = 'acba'
 print pallindrome_after_char_removed(t)
