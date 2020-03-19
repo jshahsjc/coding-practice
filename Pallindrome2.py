@@ -20,12 +20,14 @@ function3:
    for each character, remove it by function2,
    and check if the remaining string is a pallindrome by passing it into function1. return the character without which remaining string is a pallindrome. If no such character, return False.
 """
-
+import re
 def check_if_pallindrome(S):
+   regexp = "[0-9A-Za-z]"
+   lower_alnum = re.findall(regexp, S.lower()) #return list of all alphanumeric characters after converting into lowercase
    pal = True
-   i, j = 0, len(S)-1
+   i, j = 0, len(lower_alnum)-1
    while i < j:
-      if S[i] == S[j]:
+      if lower_alnum[i] == lower_alnum[j]:
       #   print "inside check_if_pallindrome: S[i]:"+S[i]
       #   print "inside check_if_pallindrome: S[i]:"+S[j]
          i += 1
