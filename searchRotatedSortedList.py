@@ -40,7 +40,6 @@ def search_in_rotated_list(L, x):
          else:
             end = mid - 1
 
-
    return -1
 
 L = [6,7,0,1,2,3,4,5]
