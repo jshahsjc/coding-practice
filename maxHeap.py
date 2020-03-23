@@ -22,7 +22,7 @@ class MaxHeap:
 
     def peek(self):
         if len(self.heap) >= 2:
-            return self.heap(1)
+            return self.heap[1]
         else:
             return False
 
@@ -56,5 +56,5 @@ class MaxHeap:
 m = MaxHeap([10,21,45,95])
 m.push(100)
 print(m)
-print(m.peek())
+print "peek " + str((m.peek()))
 print(m.pop())
