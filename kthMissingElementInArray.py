@@ -57,7 +57,6 @@ def kthMissingElementBinarySearch(A, k):
 
    return A[left - 1] + k - missing(A, left - 1)
 
-
 A = [1, 2, 4]
 K = 3
 print str(kthMissingElement(A, K)) + " - using iterative method"
