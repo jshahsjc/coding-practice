@@ -1,69 +1,113 @@
-"""
-Given a sorted array A of unique numbers, find the K-th missing number starting from the leftmost number of the array.
+class Tree:
+   def __init__(self, node, left=None, right=None):
+      self.val = node
+      self.left = left
+      self.right = right
 
-Example 1:
-
-Input: A = [4,7,9,10], K = 1
-Output: 5
-Explanation:
-The first missing number is 5.
-Example 2:
-
-Input: A = [4,7,9,10], K = 3
-Output: 8
-Explanation:
-The missing numbers are [5,6,8,...], hence the third missing number is 8.
-Example 3:
-
-Input: A = [1,2,4], K = 3
-Output: 6
-Explanation:
-The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
-
-
-Note:
-
-1 <= A.length <= 50000
-1 <= A[i] <= 1e7
-1 <= K <= 1e8
-"""
-
-def missing(A, idx):
-   return A[idx] - A[0] - idx
-
-def kthMissingElement(A, k):
-   n = len(A) - 1
-   if k > missing(A, n):
-      return A[n] + k - missing(A, n)
-
-   idx = 1
-   while missing(A, idx) < k:
-      idx += 1
-
-   return A[idx - 1] - missing(A, idx - 1) + k
-
-def kthMissingElementBinarySearch(A, k):
-   if missing(A, len(A)-1) < k:
-      return A[len(A) - 1] + k - missing(A, len(A) - 1)
-
-   left = 0
-   right = len(A) - 1
-   while left != right:
-      pivot = left + (right - left) // 2
-      if missing(A, pivot) < k:
-         left = pivot + 1
+   def insert(self,data):
+      if self.val == data:
+         return False  # duplicate value
+      elif self.val > data:
+         if self.left is not None:
+            return self.left.insert(data)
+         else:
+            self.left = Tree(data)
+            return True
       else:
-         right = pivot
+         if self.right is not None:
+            return self.right.insert(data)
+         else:
+            self.right = Tree(data)
+            return True
 
-   return A[left - 1] + k - missing(A, left - 1)
+   def find(self,data):
+      if self.val == data:
+         return data
+      elif self.val > data:
+         if self.left is None:
+            return False
+         else:
+            return self.left.find(data)
+      else:
+         if self.right is None:
+            return False
+         else:
+            return self.right.find(data)
 
+   def getsize(self):
+      if self is not None:
+         if self.left is not None and self.right is not None:
+            return 1 + self.left.getsize() + self.right.getsize()
+         elif self.left:
+            return 1 + self.left.getsize()
+         elif self.right:
+            return 1 + self.right.getsize()
+         else:
+            return 1
+      else:
+         return 0
 
-A = [1, 2, 4]
-K = 3
-print str(kthMissingElement(A, K)) + " - using iterative method"
-print str(kthMissingElementBinarySearch(A, K)) + " - using binary search method"
+   def getheight(self):
+      if self is not None:
+         if self.left is not None and self.right is not None:
+            return 1 + max(self.left.getheight(), self.right.getheight())
+         elif self.left:
+            return  1 + self.left.getheight()
+         elif self.right:
+            return 1 + self.right.getheight()
+         else:
+            return 1
+      else:
+         return 0
 
-B = [4,7,9,10]
-J = 3
-print str(kthMissingElement(B, J)) + " - using iterative method"
-print str(kthMissingElementBinarySearch(B, J)) + " - using binary search method"
+   def preorder(self):
+      if self is not None:
+         print self.val
+         if self.left:
+            self.left.preorder()
+         if self.right:
+            self.right.preorder()
+
+   def inorder(self):
+      if self is not None:
+         if self.left:
+            self.left.inorder()
+         print self.val
+         if self.right:
+            self.right.inorder()
+
+class Solution(Tree):
+   def getdiameter(self, root):
+      left_height = 0
+      right_height = 0
+      if root is not None:
+         if root.left:
+            left_height = root.left.getheight()
+         if root.right:
+            right_height = root.right.getheight()
+         root_path = 1 + left_height + right_height
+         sub_path =                                               max(self.getdiameter(root.left),                                        self.getdiameter(root.right))
+         return max(root_path, sub_path)
+      else:
+         return 0
+
+t = Tree(100)
+L = [20, 1, 5, 144, 566, 1, 35, 50, 1004, 2402, 596]
+for k in L:
+   t.insert(k)
+
+res = []
+for j in range(50, 1000):
+   if t.find(j):
+      res.append(t.find(j))
+
+print "From 50 to 1000, these data found in the tree" + str(res)
+print "size of the tree is: " +str(t.getsize())
+print "Height of the tree is: " + str(t.getheight())
+print "Preorder Tree:"
+t.preorder()
+print "Inorder Tree:"
+t.inorder()
+
+s = Solution(object)
+print "Diameter of the tree is: " + str(s.getdiameter(t))
