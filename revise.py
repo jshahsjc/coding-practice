@@ -100,20 +100,39 @@ class Solution(Tree):
       root: Tree Node
       rtype: List[str]
       """
-      paths = []   # we'll return this
+      self.paths = []   # we'll return this
 
       def constructPaths(root, path = ''):
          if root is not None:
             path += str(root.val) #start with root
             if root.left is None and root.right is None:
-               paths.append(path)  #leaf node found, add path to puths
+               self.paths.append(path)  #leaf node found, add path to puths
             else:
                path += '-->'  # extend current path to left and right
                constructPaths(root.left, path)
                constructPaths(root.right, path)
 
       constructPaths(root)
-      return paths
+      return self.paths
+
+   def rangeSumBST(self, root, L, R):
+      """
+      :type root: TreeNode
+      :type L: int
+      :type R: int
+      :rtype: int
+      """
+      self.ans = 0
+      def dfs(root):
+         if root is not None:
+            if L <= root.val <= R:
+               self.ans += root.val
+            if L < root.val:
+               dfs(root.left)
+            if root.val < R:
+               dfs(root.right)
+      dfs(root)
+      return self.ans
 
 t = Tree(100)
 L = [20, 1, 5, 144, 566, 1, 35, 50, 1004, 2402, 596]
@@ -136,3 +155,4 @@ t.inorder()
 s = Solution(object)
 print "Diameter of the tree is: " + str(s.getdiameter(t))
 print "Paths of this tree are: " + str(s.binaryTreePaths(t))
+print "Sum between 20 and 50 is: " + str(s.rangeSumBST(t, 20, 50))
