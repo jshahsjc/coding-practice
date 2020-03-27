@@ -78,6 +78,10 @@ class Tree:
 
 class Solution(Tree):
    def getdiameter(self, root):
+      """
+      root: Tree node
+      rtype: integer - longer of root path or suboptimal path
+      """
       left_height = 0
       right_height = 0
       if root is not None:
@@ -90,6 +94,26 @@ class Solution(Tree):
          return max(root_path, sub_path)
       else:
          return 0
+
+   def binaryTreePaths(self, root):
+      """
+      root: Tree Node
+      rtype: List[str]
+      """
+      paths = []   # we'll return this
+
+      def constructPaths(root, path = ''):
+         if root is not None:
+            path += str(root.val) #start with root
+            if root.left is None and root.right is None:
+               paths.append(path)  #leaf node found, add path to puths
+            else:
+               path += '-->'  # extend current path to left and right
+               constructPaths(root.left, path)
+               constructPaths(root.right, path)
+
+      constructPaths(root)
+      return paths
 
 t = Tree(100)
 L = [20, 1, 5, 144, 566, 1, 35, 50, 1004, 2402, 596]
@@ -111,3 +135,4 @@ t.inorder()
 
 s = Solution(object)
 print "Diameter of the tree is: " + str(s.getdiameter(t))
+print "Paths of this tree are: " + str(s.binaryTreePaths(t))
