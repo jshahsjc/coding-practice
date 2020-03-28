@@ -33,7 +33,24 @@ Example 6:
 Input: "/a//b////c/d//././/.."
 Output: "/a/b/c"
 """
+"""
+FB Interview question:
+Given current directory and change directory path ,
+return final path
 
+For Example:
+
+	curent                 change            output
+
+	/                    /facebook           /facebook
+	/facebook/anin       ../abc/def          /facebook/abc/def
+	/facebook/instagram   ../../../../.        /
+I solved it using stack but unfortunately it took me almost 40 minutes to come up with the solution. Last 5 minutes we discussed about life at facebook.
+
+Generally, Facebook want us to solve 2 question in 45 minuts.
+
+Similar Question: https://leetcode.com/problems/simplify-path/
+"""
 class Solution(object):
    def simplifyPath(self, path):
       """
@@ -62,7 +79,36 @@ class Solution(object):
 
       return "/" + "/".join(stack)
 
+   def simplifyPathFB(self, current, change):
+      """
+      :type current : str
+      :type change : str
+      :rtype: str
+      """
+      # handle empty path
+      if not str:
+         return str
 
+      # create path
+      path = current + "/" + change
+
+      # initialize stack
+      stack = []
+
+      for portion in path.split("/"):
+         if portion == "..":
+            if stack:
+               stack.pop()
+            else:
+               continue
+         elif portion == "":
+            continue
+         elif portion == ".":
+            continue
+         else:
+            stack.append(portion)
+
+      return "/" + "/".join(stack)
 I1 = "/a//b////c/d//././/.."
 I2 = "/a/../../b/../c//.//"
 I3 = "/a/./b/../../c/"
@@ -72,3 +118,5 @@ print s.simplifyPath(I1)
 print s.simplifyPath(I2)
 print s.simplifyPath(I3)
 print s.simplifyPath(I4)
+print s.simplifyPathFB("/facebook/anin","../abc/def")
+print s.simplifyPathFB("/facebook/instagram", "../../../../.")
