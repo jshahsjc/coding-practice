@@ -44,7 +44,7 @@ def maximumTime(T):
       else:
          max_hour[1] = '3'
    else:
-      print "max hour"
+      pass
 
    if min[0] != '?' and min[1] != '?':
       max_min = min.split()
@@ -53,7 +53,7 @@ def maximumTime(T):
    elif min[0] != '?' and min[1] == '?':
       max_min[1] == '9'
    else:
-      print "max minutes"
+      pass
 
    return ("".join(max_hour) + ":" + "".join(max_min))
 
