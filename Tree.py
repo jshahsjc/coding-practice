@@ -69,12 +69,14 @@ class Tree:
             self.right.preorder()
 
    def inorder(self):
+      left_list, right_list = [], []
       if self is not None:
          if self.left:
-            self.left.inorder()
+            left_list = self.left.inorder()
          print self.val
          if self.right:
-            self.right.inorder()
+            right_list = self.right.inorder()
+      return left_list + [self.val] + right_list
 
 class Solution(Tree):
    def getdiameter(self, root):
@@ -134,6 +136,14 @@ class Solution(Tree):
       dfs(root)
       return self.ans
 
+   def isValidBST(self, root):
+      bst_list = root.inorder()
+      for i in range(len(bst_list) - 1):
+         if bst_list[i] >= bst_list[i+1]:
+            return False
+         else:
+            return True
+
 t = Tree(100)
 L = [20, 1, 5, 144, 566, 1, 35, 50, 1004, 2402, 596]
 for k in L:
@@ -141,7 +151,7 @@ for k in L:
 
 res = []
 for j in range(50, 1000):
-   if t.find(j):
+   if t.find(j) is not None:
       res.append(t.find(j))
 
 print "From 50 to 1000, these data found in the tree" + str(res)
@@ -156,3 +166,4 @@ s = Solution(object)
 print "Diameter of the tree is: " + str(s.getdiameter(t))
 print "Paths of this tree are: " + str(s.binaryTreePaths(t))
 print "Sum between 20 and 50 is: " + str(s.rangeSumBST(t, 20, 50))
+print "Is this a valid BST ? " + str(s.isValidBST(t))
