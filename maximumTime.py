@@ -57,7 +57,6 @@ def maximumTime(T):
 
    return ("".join(max_hour) + ":" + "".join(max_min))
 
-
 input = ["0?:??", "??:??", "2?:22", "23:5?", "?4:5?"]
 for t in input:
    print  "input: " + t + " -->  output: " + maximumTime(t)
