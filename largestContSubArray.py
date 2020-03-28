@@ -12,12 +12,10 @@ Hence, the greater one is [4, 3, 2, 5]
 
 def largestContiguousSubArray(A, k):
    sub_arr = []
-   for ind in range(len(A)):
-      if ind + k <= len(A):
-         sub_arr.append(A[ind : ind + k])
+   for ind in range(len(A) - k + 1):
+      sub_arr.append(A[ind : ind + k])
    print sub_arr
    return sorted(sub_arr)[-1]
-
 
 arr = [ 1, 4, 3, 2, 5, 10, 8, 9 ]
 K = 4
