@@ -24,16 +24,23 @@ class Solution(object):
       :rtype: int
       """
       odd_houses = 0
+      odd_path = []
       even_houses = 0
+      even_path = []
       for number, house in enumerate(nums):
          if number % 2 == 0:
             even_houses += house
+            even_path.append(number)
          else:
             odd_houses += house
+            odd_path.append(number)
 
-      return max(odd_houses, even_houses)
+      if odd_houses >= even_houses:
+         return odd_houses, odd_path
+      else:
+         return even_houses, even_path
 
-nums1 = [1,2,3,1]
+nums1 = [1,2,3,1,10,20]
 nums2 = [2,7,9,3,1]
 
 s = Solution()
