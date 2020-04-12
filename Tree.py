@@ -61,22 +61,24 @@ class Tree:
          return 0
 
    def preorder(self):
+      res = []
       if self is not None:
-         print self.val
+         res.append(self.val)
          if self.left:
-            self.left.preorder()
+            res.append(self.left.preorder())
          if self.right:
-            self.right.preorder()
+            res.append(self.right.preorder())
+         return res
 
    def inorder(self):
-      left_list, right_list = [], []
+      res = []
       if self is not None:
          if self.left:
-            left_list = self.left.inorder()
-         print self.val
+            res.append(self.left.inorder())
+         res.append(self.val)
          if self.right:
-            right_list = self.right.inorder()
-      return left_list + [self.val] + right_list
+            res.append(self.right.inorder())
+      return res
 
 class Solution(Tree):
    def getdiameter(self, root):
@@ -151,16 +153,16 @@ for k in L:
 
 res = []
 for j in range(50, 1000):
-   if t.find(j) is not None:
+   if t.find(j):
       res.append(t.find(j))
 
 print "From 50 to 1000, these data found in the tree" + str(res)
 print "size of the tree is: " +str(t.getsize())
 print "Height of the tree is: " + str(t.getheight())
 print "Preorder Tree:"
-t.preorder()
+print t.preorder()
 print "Inorder Tree:"
-t.inorder()
+print t.inorder()
 
 s = Solution(object)
 print "Diameter of the tree is: " + str(s.getdiameter(t))

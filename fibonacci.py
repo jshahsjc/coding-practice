@@ -1,4 +1,4 @@
- a,b,fib = 0,1,[0,1]
+a,b,fib = 0,1,[0,1]
 #fib.append(a)
 #fib.append(b)
 def fibonacci(n):

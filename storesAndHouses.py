@@ -40,7 +40,7 @@ class Solution(object):
          if x == arr[low]:
             return low
          # if low is greater than high, return -1
-         if low > high or x < low:
+         if low > high or x < arr[low]:
             return None
          # get the mid value
          mid = low + (high - low) // 2
