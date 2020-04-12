@@ -24,6 +24,7 @@ iterate through input list:
    for current value, find anagrams and append to a temp list
    append temp to res list
 """
+from collections import defaultdict
 
 class Solution(object):
    def groupAnagrams(self, strs):
@@ -64,7 +65,15 @@ class Solution(object):
 
       return group_anagrams
 
+
+   def groupAnagramsAlt(self, strs):
+      group_anagrams = defaultdict(list)
+      for s in strs:
+         group_anagrams[tuple(sorted(s))].append(s)
+
+      return group_anagrams.values()
+
 s = Solution()
 input = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
-print s.groupAnagrams(input)
+print s.groupAnagramsAlt(input)
