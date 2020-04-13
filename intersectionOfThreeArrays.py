@@ -28,7 +28,6 @@ class Solution(object):
             k += 1
       return res
 
-
 arr1 = [1,2,3,4,5]
 arr2 = [1,2,5,7,9]
 arr3 = [1,3,4,5,8]
