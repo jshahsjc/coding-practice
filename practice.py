@@ -15,12 +15,9 @@ def reverseWordsInSentense(s):
    final = ''
 
    while p >= 0:
-      if s[p] != ' ':
-         stack.append(s[p])
-         p -= 1
-      else:
-         stack.append(' ')
-         p -= 1
+      stack.append(s[p])
+      p -= 1
+
    print stack
 
    for i in range(len(stack)):
