@@ -28,15 +28,26 @@ Output: "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaa
 def goatLatin(S):
     # convert the sentence into the list
     L = S.split()
+    # create empty list to store values
+    # This is important since the word 
+    # or a string is an immutable object
+    # Hence, we cannot update the word in place
+    goatL = []
+    print "L:", L
     # check for each word if it begins with a vowel
-    V = "aeiou"
+    V = "aeiouAEIOU"
     for n, word in enumerate(L):
+        print "word0:", word[0]
         if word[0] in V:
-            word = word + "ma" + (n+1)*"a"
+            print "It's a vowel"
+            goatWord = word + "ma" + (n+1)*"a"
         else:
-            word = word[1:] + word[0] + "ma" + (n+1)*"a"
+            print "It's not a vowel"
+            goatWord = word[1:] + word[0] + "ma" + (n+1)*"a"
 
-    return " ".join(L)
+    	goatL.append(goatWord)
+
+    return " ".join(goatL)
 
 #test
 inA = "I speak Goat Latin"

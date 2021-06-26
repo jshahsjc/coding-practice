@@ -70,8 +70,12 @@ def intervalIntersect(fl, sl):
             j += 1
     return res
 
-firstList = [[0,2],[5,10],[13,23],[24,25]]
-secondList = [[1,5],[8,12],[15,24],[25,26]]
+firstList = [(0,2),(5,10),(13,23),(24,25)]
+secondList = [(1,5),(8,12),(15,24),(25,26)]
 
-print intervalIntersect(firstList, secondList)
-
+desiredOp = [(1,2),(5,5),(8,10),(15,23),(24,24),(25,25)]
+print "desiredOp:", desiredOp
+testOp = intervalIntersect(firstList, secondList)
+print "testOp:", testOp
+if desiredOp == testOp:
+    print "Test pass!"
