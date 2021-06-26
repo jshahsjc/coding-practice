@@ -46,3 +46,5 @@ print "Expected:", expectedGoatA
 print "Received:", actualGoatA
 if expectedGoatA == actualGoatA:
     print "Success!"
+else:
+    print  "Awww !!"
