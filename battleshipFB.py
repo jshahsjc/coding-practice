@@ -1,9 +1,9 @@
 # Consider a square grid of size N, where N >= 3. I have placed a battleship of
-# size 3 somewhere in the grid, and you ant to sink my battleship by ordering
+# size 3 somewhere in the grid, and you want to sink my battleship by ordering
 # the bombing of specified coordinates.
 
 # The battleship can only be placed vertically or horizontally, not diagonally.
-# Every coordinate whihc does not contain the battleship is empty. Your task
+# Every coordinate which does not contain the battleship is empty. Your task
 # is to write a function which takes as input N, and returns the 3 coordinates of
 # the battleship.
 
