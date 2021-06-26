@@ -1,31 +1,20 @@
 """
-Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
-
-Example:
-
-Input: [0,1,0,3,12]
-Output: [1,3,12,0,0]
-Note:
-
-You must do this in-place without making a copy of the array.
-Minimize the total number of operations.
+check if a string is a pallindrome after removing a character
 """
-class Solution(object):
-   def moveZeroes(self, nums):
-      """
-      :type nums: List[int]
-      :rtype: None Do not return anything, modify nums in-place instead.
-      """
-      nzp = 0
-      for p in range(len(nums)):
-         if nums[p] != 0:
-            nums[p], nums[nzp] = nums[nzp], nums[p]
-            nzp += 1
 
-      return nums
+def check_pallindrome(S):
+    i = 0
+    j = len(S) - 1
+    is_pallindrome = True
+    while i <= j:
+        if S[i] == S[j]:
+            i += 1
+            j -= 1
+        else:
+            is_pallindrome = False
+            break
+    return is_pallindrome
 
-s = Solution()
-I = [0,1,0,3,12]
-
-print "original: " + str(I)
-print "zero moved: " + str(s.moveZeroes(I))
+def checkIfPallindrome_after_removing_a_character(S):
+    for k in range(len(S) - 1):
+        tmpStr = S[:k] + S[k + 1:]

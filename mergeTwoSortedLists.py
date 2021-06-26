@@ -21,5 +21,4 @@ def merge(L1, L2, A = []):
 l1 = [10, 12, 15, 21, 29]
 l2 = [13, 16, 22, 23, 24, 27]
 
-mergedList = merge(l1, l2)
-print mergedList
+print merge(l1, l2) 
