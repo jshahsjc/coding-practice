@@ -43,7 +43,7 @@ def equalSumSubArray(A):
         leftSum += val
         sum -= val
         if leftSum == sum:
-            return [A[:k], A[k:]]
+            return [A[:k+1], A[k+1:]]
 
 # Test
 testA =  [ 1 , 2 , 3 , 4 , 5 , 5 ]
