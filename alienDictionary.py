@@ -84,7 +84,6 @@ def get_order_dict(order):
       v += 1
    return order_dict
 
-
 print "Input: " + 'words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"'
 print "Sorted ? " + str(alien_dict_check(["word","world","row"], "worldabcefghijkmnpqstuvxyz"))
 
