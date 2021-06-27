@@ -59,7 +59,7 @@ def alienDictCheck(words, order):
     return isSorted
 
 #Test
-words = ["hello","leetcode"] 
+words = ["hello","leetcode"]
 order = "hlabcdefgijkmnopqrstuvwxyz"
 if alienDictCheck(words, order):
     print words, "are sorted based on:", order
