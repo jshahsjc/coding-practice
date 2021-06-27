@@ -51,7 +51,7 @@ def getMaxNewDiners(TableSize, distance, dinerSeated, takenSeats):
         if n not in blockedSeats:
             openSeats.append(n)
     # iterate through open seats and check for distance
-    availableSeats = 0
+    availableSeats = []
     for o in openSeats:
         leftBlock = o - distance
         rightBlock = o + distance
@@ -62,7 +62,7 @@ def getMaxNewDiners(TableSize, distance, dinerSeated, takenSeats):
             else:
                 pass
         if not cantUse:
-            availableSeats += 1
+            availableSeats.append(o)
     return availableSeats
 
 print getMaxNewDiners(10, 1, 2, [2, 6])
