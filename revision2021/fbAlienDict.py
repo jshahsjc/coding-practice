@@ -28,7 +28,7 @@ All characters in words[i] and order are English lowercase letters.
 '''
 
 def alienDictCheck(words, order):
-    # result bool
+    # result bool, default is sorted
     isSorted = True
     # Build order dictionary
     orderDict = {}
@@ -37,24 +37,31 @@ def alienDictCheck(words, order):
         if char not in orderDict:
             orderDict[char] = i
         i += 1
+    print orderDict
+
     # Start comparing word
-    for num in len(words) - 1:
+    for num in range(len(words) - 1):
         w1 = words[num]
         w2 = words[num + 1]
+        print w1, w2
         tLen = min(len(w1), len(w2))
+        print "tLen:", tLen
         if w1[:tLen] == w2[:tLen] and  len(w1) > len(w2):
             return False
         else:
             for t in range(tLen):
+                print "char1:", orderDict[w1[t]]
+                print "char2:", orderDict[w2[t]]
                 if orderDict[w1[t]] > orderDict[w2[t]]:
                     return False
+		else:
+		    return True
     return isSorted
 
 #Test
-words = ["apple", "app"]
-order = "abcdefghijklmnopqrstuvwxyz"
-
-if alienDictCheck:
+words = ["hello","leetcode"] 
+order = "hlabcdefgijkmnopqrstuvwxyz"
+if alienDictCheck(words, order):
     print words, "are sorted based on:", order
 else:
     print "Not sorted."
