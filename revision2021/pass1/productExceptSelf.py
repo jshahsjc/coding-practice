@@ -26,4 +26,4 @@ def productXself(A):
         answer.append(p)
     return answer
 
-print productXself([1,2,3,4])
+print (productXself([1,2,3,4]))
