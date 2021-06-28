@@ -15,9 +15,9 @@ Could you solve it with constant space complexity? (The output array does not co
 
 def productXself(A):
     tmpA = []
-    p = 1
     answer = []
     for i in range(len(A)):
+        p = 1
         tmpA = A[:i] + A[i + 1:]
         print tmpA
         for val in tmpA:
