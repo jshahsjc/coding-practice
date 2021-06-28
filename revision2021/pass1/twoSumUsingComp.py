@@ -21,5 +21,5 @@ def twoSum(nums, target):
             return (seen[comp], i)
 
 nums = [2, 7, 11, 15]
-target = 9
+target = 17
 print twoSum(nums, target)
