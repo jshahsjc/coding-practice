@@ -17,6 +17,7 @@ def subArraySum(A, sum):
             tmp += A[i]
             i += 1
         else:
+            tmp = 0
             count += 1
             i += 1
         return count
@@ -25,4 +26,4 @@ def subArraySum(A, sum):
 
 nums = [1,1,1]
 k = 2
-print subArraySum(nums, k)    
+print subArraySum(nums, k)
