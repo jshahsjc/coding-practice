@@ -10,8 +10,8 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 """
 
 def subArraySum(A, sum):
-    if len(A) < 1
-        //  1 length array
+    #if len(A) < 1
+        #1 length array
     if len(A) in range(1, 20001):
         tmpSum = A[i]
         count = 0
