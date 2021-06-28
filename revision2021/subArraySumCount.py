@@ -20,7 +20,8 @@ def subArraySum(A, sum):
         while i < len(A) and j < len(A) and i <= j:
             if tmpSum < sum:
                 j += 1
-                tmpSum += A[j]
+                if (j < len(A))
+                    tmpSum += A[j]
             elif tmpSum == sum:
                 count += 1
                 tmpSum -= A[i]
