@@ -11,15 +11,16 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 
 def subArraySum(A, sum):
     if len(A) in range(1, 20001):
-        tmp = i = 0
+        tmp = i = j = 0
         count = 0
-        while tmp != sum and i <= len(A):
-            tmp += A[i]
-            i += 1
-        else:
-            tmp = 0
-            count += 1
-            i += 1
+        while i <= len(A) and j <= len(A):
+            if tmp != sum:
+                tmp += A[i]
+                i += 1
+            else:
+                tmp = 0
+                count += 1
+                j += 1
         return count
     else:
         return -1
