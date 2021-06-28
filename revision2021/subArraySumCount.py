@@ -10,21 +10,24 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 """
 
 def subArraySum(A, sum):
+    if len(A) < 1
+        //  1 length array
     if len(A) in range(1, 20001):
-        tmpSum = 0
+        tmpSum = A[i]
         count = 0
-        i = j = 0
-
+        i = 0
+        j = 0
         while i < len(A) and j < len(A) and i <= j:
-            tmpSum += A[i]
-
-            if tmpSum == sum:
+            if tmpSum < sum:
+                j += 1
+                tmpSum += A[j]
+            elif tmpSum == sum:
                 count += 1
                 tmpSum -= A[i]
                 i += 1
             else:
-                tmpSum += A[j]
-                j += 1
+                tmpSum -= A[i]
+                i += 1
         return count
     else:
         return -1
