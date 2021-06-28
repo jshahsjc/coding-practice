@@ -14,7 +14,7 @@ return [0, 1].
 def twoSum(nums, target):
     seen = {}
     for i in range(len(nums)):
-        comp = target - num[i]
+        comp = target - nums[i]
         if comp not in seen:
             seen[nums[i]] = i
         else:
