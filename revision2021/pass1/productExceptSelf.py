@@ -19,9 +19,10 @@ def productXself(A):
     answer = []
     for i in range(len(A)):
         tmpA = A[:i] + A[i + 1:]
+        print tmpA
         for val in tmpA:
             p *=  val
-            answer.append(p)
+        answer.append(p)
     return answer
 
 print productXself([1,2,3,4])
