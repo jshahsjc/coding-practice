@@ -16,19 +16,19 @@ def subArraySum(A, sum):
         count = 0
         i = 0
         j = 0
-        tmpSum = A[i]
+        currSum = A[i]
         while i < len(A) and j < len(A) and i <= j:
-            if tmpSum < sum:
+            # exapand the window by incrementing j and adding element at j to currSum
+            if currSum < sum and j < len(A-1):
                 j += 1
-                if j < len(A):
-                    tmpSum += A[j]
-            elif tmpSum == sum:
+                currSum += A[j]
+                continue
+            # sum is achieved, increment count
+            if currSum == sum:
                 count += 1
-                tmpSum -= A[i]
-                i += 1
-            else:
-                tmpSum -= A[i]
-                i += 1
+            # if sum achieved OR currSum > sum, remove i element from window and shrink window  by incrementing i
+            currSum -= A[i]
+            i += 1
         return count
     else:
         return -1
