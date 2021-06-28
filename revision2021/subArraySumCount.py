@@ -13,7 +13,7 @@ def subArraySum(A, sum):
     if len(A) in range(1, 20001):
         tmp = i = j = 0
         count = 0
-        while i <= len(A) and j <= len(A):
+        while i < len(A) and j < len(A):
             if tmp != sum:
                 tmp += A[i]
                 i += 1
