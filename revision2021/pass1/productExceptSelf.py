@@ -22,6 +22,7 @@ def productXself(A):
         print tmpA
         for val in tmpA:
             p *=  val
+        print p
         answer.append(p)
     return answer
 
