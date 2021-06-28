@@ -21,7 +21,7 @@ def productXself(A):
         tmpA = A[:i] + A[i + 1:]
         for val in tmpA:
             p *=  val
-            answer.append(j)
+            answer.append(p)
     return answer
 
 print productXself([1,2,3,4])
