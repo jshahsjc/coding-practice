@@ -31,6 +31,6 @@ def subArraySum(A, sum):
     else:
         return -1
 
-nums = []
+nums = [-1,1,1]
 k = 0
 print subArraySum(nums, k)
