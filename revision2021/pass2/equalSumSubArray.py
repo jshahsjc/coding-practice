@@ -31,7 +31,7 @@ def equalSumArrays(A):
         sum -= A[i]
         if currSum == sum:
             return (A[:i+1], A[i+1:])
-    return ()
+    return "Not Possible"
 
 Arr = [ 1 , 2 , 3 , 4 , 5 , 5  ]
 print (equalSumArrays(Arr))
