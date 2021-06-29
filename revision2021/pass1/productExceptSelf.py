@@ -28,10 +28,3 @@ def productXself(A):
     return answer
 
 print (productXself([1,2,3,4]))
-
-# O(n) solution:
-
-def productExceptSelf(A):
-    L = []*len(A)
-    R = []*len(A)
-    
