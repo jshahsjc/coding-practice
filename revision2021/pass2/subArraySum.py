@@ -11,7 +11,7 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 
 def subArraySum(A, k):
     currSum = 0
-    count == 0
+    count = 0
     priorSums = {}
     for i in range(len(A)):
         currSum += A[i]
