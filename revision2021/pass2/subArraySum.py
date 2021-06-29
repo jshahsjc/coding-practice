@@ -23,8 +23,6 @@ def subArraySum(A, k):
             priorSums[currSum] += 1
         else:
             priorSums[currSum] = 1
-
-
     return count
 
 
