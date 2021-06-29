@@ -20,30 +20,15 @@ def findBattleship(N):
     for x in range(N):
         for y in range(N):
             # Two for loops = O(n^2)
-            # Carrying on for now
             if bomb_location(x, y):
                 battleShip.append((x, y))
             # Think where to bomb next
             # Case1: ship is horizontally placed
-            if (x - 2) >= 0 and (x + 2) <= N:
-                if bomb_location(x - 1, y) && bomb_location(x - 2, y):
-                    battleShip.append((x - 1, y), (x - 2, y))
-                if bomb_location(x + 1, y) && bomb_location(x + 2, y):
+            if (x + 2) < N:
+                if bomb_location(x + 1, y) and bomb_location(x + 2, y):
                     battleShip.append((x + 1, y), (x + 2, y))
-            elif (x - 1) >= 0:
-                if bomb_location(x - 1, y) && bomb_location(x + 1, y):
-                    battleShip.append((x - 1, y), (x + 1, y))
-            ## More cases can be added to optimize this further.
-            ## Need to do more thinking.
-            else:
-                pass
-
-            # Case2: ship is vertically placed
-            if (y - 2) >= 0:
-                if bomb_location(x, y - 1) && bomb_location(x, y - 2):
-                    battleShip.append((x, y - 1), (x, y - 2))
-            elif (y + 2) <= N:
-                if bomb_location(x, y + 1) && bomb_location(x, y + 2):
+            # Case 2: ship is vertically placed
+            elif (y + 2) < N:
+                if bomb_location(x, y +  1) and bomb_location(x, y + 2):
                     battleShip.append((x, y + 1), (x, y + 2))
-            else:
-                pass
+    return battleShip

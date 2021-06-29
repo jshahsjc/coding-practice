@@ -13,6 +13,7 @@ Follow up:
 Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
 """
 
+# First simple o(n^2) solution:
 def productXself(A):
     tmpA = []
     answer = []
@@ -27,3 +28,10 @@ def productXself(A):
     return answer
 
 print (productXself([1,2,3,4]))
+
+# O(n) solution:
+
+def productExceptSelf(A):
+    L = []*len(A)
+    R = []*len(A)
+    
