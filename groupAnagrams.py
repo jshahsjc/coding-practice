@@ -65,7 +65,6 @@ class Solution(object):
 
       return group_anagrams
 
-
    def groupAnagramsAlt(self, strs):
       group_anagrams = defaultdict(list)
       for s in strs:
