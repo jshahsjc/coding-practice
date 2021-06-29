@@ -51,7 +51,7 @@ def intervalIntersect(fl, sl):
         left = max(fl[i][0], sl[j][0])
         right = min(fl[i][1], sl[j][1])
         if left <= right:
-            result.append(left, right)
+            result.append((left, right))
         if fl[i][1] <= sl[j][1]:
             i += 1
         else:
