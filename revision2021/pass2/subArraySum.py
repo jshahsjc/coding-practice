@@ -26,3 +26,9 @@ def subArraySum(A, k):
 
 
     return count
+
+
+#test
+nums = [1,1,1]
+k = 2
+print subArraySum(nums, k)
