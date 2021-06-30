@@ -20,17 +20,17 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 """
 
-def removeDups(nums):
+def removeDups(A):
     i = 0
     j = 1
-    while j < len(nums):
+    while j < len(A):
         if A[j] == A[i]:
             j += 1
         else:
             i += 1
             A[i] = A[j]
 
-    return nums
+    return A
 
 nums = [0,0,1,1,1,2,2,3,3,4]
 print (removeDups(nums))
