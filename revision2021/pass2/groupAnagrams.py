@@ -22,7 +22,7 @@ def anagram_buckets(words):
     for word in words:
             buckets[tuple(sorted(word))].append(word)
 
-    return buckets
+    return buckets.values()
 
 test = ["star", "rats", "car", "arc", "arts", "stars"]
 print anagram_buckets(test)
