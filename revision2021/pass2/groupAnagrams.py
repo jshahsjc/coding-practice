@@ -20,7 +20,7 @@ from collections import  defaultdict
 def anagram_buckets(words):
     buckets = defaultdict(list)
     for word in words:
-            buckets[sorted(word)].append(word)
+            buckets[tuple(sorted(word))].append(word)
 
     return buckets
 
