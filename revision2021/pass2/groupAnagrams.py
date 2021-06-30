@@ -15,14 +15,11 @@ Note:
 All inputs will be in lowercase.
 The order of your output does not matter.
 """
-
+from collections import  defaultdict
 
 def anagram_buckets(words):
-    buckets = {}
+    buckets = defaultdict(list)
     for word in words:
-        if sorted(word) not in buckets:
-            buckets[sorted(word)] = [word]
-        else:
             buckets[sorted(word)].append(word)
 
     return buckets
