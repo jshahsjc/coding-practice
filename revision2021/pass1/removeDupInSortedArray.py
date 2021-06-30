@@ -30,7 +30,7 @@ def removeDups(A):
             i += 1
             A[i] = A[j]
 
-    return A
+    return ( i + 1, A)
 
 nums = [0,0,1,1,1,2,2,3,3,4]
 print (removeDups(nums))
