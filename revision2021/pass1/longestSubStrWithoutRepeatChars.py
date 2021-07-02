@@ -49,6 +49,7 @@ def longestSubStrNoRepeat(S):
             i += 1
             j += 1
         else:
+            print("in else")
             j += 1
 
     return count
