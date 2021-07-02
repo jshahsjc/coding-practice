@@ -46,10 +46,10 @@ def longestSubStrNoRepeat(S):
             print("3rd if")
             count = j - i + 1
             print(count)
-            i += 1
             j += 1
         else:
             print("in else")
+            i += 1
             j += 1
 
     return count
