@@ -44,6 +44,8 @@ def longestSubStrNoRepeat(S):
         print("in while")
         if S[i] == S[j]:
             print("3rd if")
+            print ("i", i)
+            print ("j", j)
             count = j - i + 1
             print(count)
             j += 1
