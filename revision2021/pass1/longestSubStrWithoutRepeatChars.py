@@ -50,6 +50,7 @@ def longestSubStrNoRepeat(S):
             j += 1
         else:
             print("in else")
+            print (S[i:j+1])
             count = j - i + 1
             i += 1
             j += 1
