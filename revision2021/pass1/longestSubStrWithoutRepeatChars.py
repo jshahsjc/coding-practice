@@ -33,6 +33,7 @@ def longestSubStrNoRepeat(S):
     i = 0
     j = 1
     count = 0
+    print (len(S))
     if len(S) == 0:
         return 0
     if len(S) == 1:
@@ -40,6 +41,7 @@ def longestSubStrNoRepeat(S):
     while j < len(S):
         if S[i] == S[j]:
             count = j - i + 1
+            print(count)
             i += 1
             j += 1
         else:
