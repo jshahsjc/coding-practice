@@ -56,7 +56,8 @@ def threeSum(nums):
             triplet.append(cmp[1])
         if len(triplet) == 3:
             res.append(triplet)
-    return res
+
+    return set(sorted(res))
 
 nums = [-1,0,1,2,-1,-4]
 test = threeSum(nums)
