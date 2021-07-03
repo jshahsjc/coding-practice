@@ -34,7 +34,7 @@ def twoSum(A, t):
     while i < len(A):
         comp = t - A[i]
         if comp not in compdict:
-            compdict[comp] = i
+            compdict[A[i]] = i
             i += 1
         else:
             return (A[i], A[compdict[comp]])
