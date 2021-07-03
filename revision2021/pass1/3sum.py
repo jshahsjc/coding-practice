@@ -37,7 +37,7 @@ def twoSum(A, t):
             compdict[comp] = i
             i += 1
         else:
-            return (i, compdict[comp])
+            return (A[i], A[compdict[comp]])
     return ()
 
 def threeSum(nums):
@@ -46,11 +46,13 @@ def threeSum(nums):
         triplet = []
         triplet.append(nums[i])
         target = 0 - nums[i]
+        print("target:", target)
         alist = nums[:i] + nums[(i + 1):]
+        print ("alist:", alist)
         cmp = twoSum(alist, target)
         if len(cmp) == 2:
-            triplet.append(alist[cmp[0]])
-            triplet.append(alist[cmp[1]])
+            triplet.append(cmp[0])
+            triplet.append(cmp[1])
         if len(triplet) == 3:
             res.append(triplet)
     return res
