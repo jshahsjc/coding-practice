@@ -51,7 +51,7 @@ def threeSum(nums):
         if len(cmp) == 2:
             triplet.append(alist[cmp[0]])
             triplet.append(alist[cmp[1]])
-        if len(triplet) is not 0:
+        if len(triplet) == 3:
             res.append(triplet)
     return res
 
