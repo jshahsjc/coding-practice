@@ -57,7 +57,7 @@ def threeSum(nums):
         if len(triplet) == 3:
             res.append(triplet)
 
-    return set(sorted(res))
+    return set(tuple(sorted(res)))
 
 nums = [-1,0,1,2,-1,-4]
 test = threeSum(nums)
