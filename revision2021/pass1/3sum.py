@@ -50,6 +50,7 @@ def threeSum(nums):
         alist = nums[:i] + nums[(i + 1):]
         print ("alist:", alist)
         cmp = twoSum(alist, target)
+        print ("cmp:", cmp)
         if len(cmp) == 2:
             triplet.append(cmp[0])
             triplet.append(cmp[1])
