@@ -30,6 +30,7 @@ def twoSum(A, t):
     sum would equal to a target t
     """
     compdict = {}
+    i = 0
     while i < len(A):
         comp = t - A[i]
         if comp not in compdict:
