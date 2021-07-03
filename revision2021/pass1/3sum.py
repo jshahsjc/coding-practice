@@ -54,10 +54,11 @@ def threeSum(nums):
         if len(cmp) == 2:
             triplet.append(cmp[0])
             triplet.append(cmp[1])
-        if len(triplet) == 3:
-            res.append(triplet)
+        if len(triplet) == 3 and sorted(triplet) not in res:
+            res.append(sorted(triplet))
 
-    return set(tuple(sorted(res)))
+    return res
+
 
 nums = [-1,0,1,2,-1,-4]
 test = threeSum(nums)
