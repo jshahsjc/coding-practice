@@ -35,7 +35,7 @@ def twoSum(A, t):
             comps[A[i]] = i
         else:
             return [A[i], A[comps[comp]]
-    return []
+
 
 def threeSum(nums):
     """
