@@ -76,4 +76,4 @@ def romanToInt(roman):
 
     return toInt
 
-print romanInt("MCMXCIV")
+print romanToInt("MCMXCIV")
