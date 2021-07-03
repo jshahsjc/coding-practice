@@ -54,3 +54,8 @@ def threeSum(nums):
             res.append(sorted(triplet))
         i += 1
     return res
+
+
+nums = [-1,0,1,2,-1,-4]
+test = threeSum(nums)
+print (test)
