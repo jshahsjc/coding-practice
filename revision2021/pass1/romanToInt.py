@@ -64,17 +64,21 @@ def romanToInt(roman):
     while i < (len(roman) - 1):
         if roman[i] == 'I'  and roman[i + 1] in 'VX':
             toInt += (romanDict[roman[i + 1]] - romanDict[roman[i]])
+            i += 2
             print (roman[i], toInt)
         elif roman[i] == 'X'  and roman[i + 1] in 'LC':
             toInt += (romanDict[roman[i + 1]] - romanDict[roman[i]])
+            i += 2
             print (roman[i], toInt)
         elif roman[i] == 'C'  and roman[i + 1] in 'DM':
             toInt += (romanDict[roman[i + 1]] - romanDict[roman[i]])
+            i += 2
             print (roman[i], toInt)
         else:
             toInt += romanDict[roman[i]]
+            i += 1
             print (roman[i], toInt)
-        i += 1
+
     if i < len(roman):
         toInt += romanDict[roman[i]]
         print (roman[i], toInt)
