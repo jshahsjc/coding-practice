@@ -46,7 +46,7 @@ def threeSum(nums):
         target = 0 - nums[i]
         triplets += twoSum(templist, target)
         if len(triplets) == 3 and sorted(triplets) not in res:
-            res.append(triplets)
+            res.append(sorted(triplets))
         i += 1
     return res
 
