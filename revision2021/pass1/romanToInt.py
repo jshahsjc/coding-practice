@@ -61,7 +61,7 @@ def romanToInt(roman):
     }
     toInt = 0
     i = 0
-    while i <= (len(roman) - 1):
+    while i < (len(roman) - 1):
         if roman[i] == 'I'  and roman[i + 1] in 'VX':
             toInt += (romanDict[roman[i + 1]] - romanDict[roman[i]])
             print (roman[i], toInt)
