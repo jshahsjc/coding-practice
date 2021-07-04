@@ -26,18 +26,17 @@ def moveZero(nums):
     j = 1
     if len(nums) <= 1:
         return nums
-    while j < len(nums):
+    while  j < len(nums):
         if nums[i] is 0:
-            if nums[j] is 0:
+            if nums[j]is 0:
                 j += 1
             else:
-                nums[i], nums[j] =  nums[j], nums[i]
-                i +=  1
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
         else:
             i += 1
             j += 1
 
     return nums
 
-nums = [0,1,0,3,12]
-print(moveZero(nums))
+print moveZero([0,1,0,3,12])
