@@ -39,6 +39,8 @@ def validPalindrome(S):
     return True
 
 S = "A man, a plan, a canal: Panama"
-
+S = "race9 9e car"
 if validPalindrome(S):
     print("yes !!")
+else:
+    print("No !!")
