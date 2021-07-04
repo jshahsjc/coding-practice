@@ -27,15 +27,14 @@ def moveZero(nums):
     if len(nums) <= 1:
         return nums
     while j < len(nums):
-        if nums[i] is 0:
-            if nums[j] is 0:
-                j += 1
-            else:
-                nums[i], nums[j] =  nums[j], nums[i]
-                i +=  1
-        else:
-            i += 1
+        if nums[i] is 0 and nums[j] is 0:
             j += 1
+        else:
+            nums[i], nums[j] =  nums[j], nums[i]
+            i +=  1
+
+        i += 1
+        j += 1
 
     return nums
 
