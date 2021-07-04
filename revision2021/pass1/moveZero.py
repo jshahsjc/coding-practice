@@ -26,7 +26,7 @@ def moveZero(nums):
     j = 1
     if len(nums) <= 1:
         return nums
-    while j < len(nums) and i < j:
+    while j < len(nums):
         if nums[i] is 0:
             if nums[j] is 0:
                 j += 1
