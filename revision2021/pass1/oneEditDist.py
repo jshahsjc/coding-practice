@@ -36,7 +36,7 @@ def oneEditDist(s, t):
     if len(s) > len(t):
         return oneEditDist(t, s)
 
-    if (len(t) - len(s)) > 1:
+    elif (len(t) - len(s)) > 1:
         return False
 
     elif (len(t) - len(s)) == 1:
@@ -52,7 +52,8 @@ def oneEditDist(s, t):
                 if s[(i + 1):] is not t[(i + 1):]:
                     return False
     else:
-        return True
+        return None
+    return True
 
 s = "ab"
 t = "acb"
