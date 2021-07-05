@@ -28,8 +28,8 @@ def longestSubStrWithKdist(s, k):
 
     i = j = 0
     maxlen = 1
+    temp = defaultdict()
     while j < len(s):
-        temp = defaultdict()
         temp[s[j]] = j
         j += 1
         if len(temp) == k + 1:
