@@ -23,23 +23,24 @@ Constraints:
 from collections import defaultdict
 
 def longestSubStrWithKdist(s, k):
-    if len(s) * k == 0:
+    i = 0
+    keep = defaultdict()
+    maxlen = 0
+
+    if len(s) == 0:
         return 0
+    if len(s) == 1:
+        return 1
 
-    i = j = 0
-    maxlen = 1
-    temp = defaultdict()
-    while j < len(s):
-        temp[s[j]] = j
-        j += 1
-        if len(temp) == k + 1:
-            delIndx = min(temp.values())
-            del temp[s[delIndx]]
+    for j in range(len(s)):
+        keep[s[j]] = j
+        if len(keep) > k:
             i += 1
-        maxlen =  max(maxlen, (j - i))
-
+            delIndx = min(keep.values())
+            del keep[s[delIndx]]
+        maxlen = max(maxlen, j - i + 1)
+        
     return maxlen
-
 s = "eceba"
 k = 2
 
