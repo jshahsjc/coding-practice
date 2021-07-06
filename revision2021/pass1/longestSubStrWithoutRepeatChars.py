@@ -28,33 +28,17 @@ Constraints:
 s consists of English letters, digits, symbols and spaces.
 
 """
-
-def longestSubStrNoRepeat(S):
+from  collections import defaultdict
+def longestSubStrNoRepeat(s):
+    maxlen = 0
     i = 0
-    j = 1
-    count = 0
-    print (len(S))
-    if len(S) == 0:
-        print("first if")
-        return 0
-    if len(S) == 1:
-        print("2nd if")
-        return 1
-    while j < len(S):
-        print("in while")
-        if S[i] == S[j]:
-            print("3rd if")
-            print ("i", i)
-            print ("j", j)
-            print(count)
-            j += 1
-        else:
-            print("in else")
-            print (S[i:j+1])
-            count = j - i + 1
-            i += 1
-            j += 1
+    keep =  defaultdict()
+    for j in range(len(s)):
+        if s[j] in keep:
+            i = keep[s[j]]
+        maxlen = max(maxlen, j - i + 1)
+        keep[s[j]] = j + 1
 
-    return count
+    return maxlen
 
 print longestSubStrNoRepeat("pwwkew")
