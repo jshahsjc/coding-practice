@@ -29,4 +29,4 @@ def subArraySumK(A, k):
 
 nums = [1,1,1]
 k = 2
-print subArraySum(nums, k)
+print subArraySumK(nums, k)
