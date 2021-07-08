@@ -23,7 +23,7 @@ def subArraySumK(A, k):
         if (k - currSum) in keep:
             count += keep[(k - currSum)]
         else:
-            keep[(k - currSum)] += 1
+            keep[currSum] += 1
 
     return count
 
