@@ -54,3 +54,7 @@ def validpar(s):
                     mystack.pop()
 
     return True
+
+print (validpar("{[]}"))
+
+print (validpar("([)])"))
