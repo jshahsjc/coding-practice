@@ -17,7 +17,7 @@ def subArraySum(A, sum):
         currSum = A[i]
         while i < len(A) and j < len(A) and i <= j:
             # exapand the window by incrementing j and adding element at j to currSum
-            if currSum < sum and j < (len(A)-1):
+            if currSum < sum:
                 j += 1
                 currSum += A[j]
                 continue
@@ -25,8 +25,9 @@ def subArraySum(A, sum):
             if currSum == sum:
                 count += 1
             # if sum achieved OR currSum > sum, remove i element from window and shrink window  by incrementing i
-            currSum -= A[i]
-            i += 1
+            else:
+                currSum -= A[i]
+                i += 1
         return count
     else:
         return -1
