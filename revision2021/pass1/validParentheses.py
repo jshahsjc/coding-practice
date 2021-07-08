@@ -49,6 +49,7 @@ def validpar(s):
             print (mystack)
         else:
             if s[i] in keep.values():
+                print("val:", s[i])
                 print("compare:",mystack[-1])
                 if mystack[-1] is not s[i]:
                     return False
