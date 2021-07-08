@@ -20,8 +20,8 @@ def subArraySumK(A, k):
         currSum += A[i]
         if currSum == k:
             count += 1
-        if (k - currSum) in keep:
-            count += keep[(k - currSum)]
+        if (currSum - k) in keep:
+            count += keep[(currSum - k)]
         else:
             keep[currSum] += 1
 
