@@ -51,7 +51,7 @@ def validpar(s):
             if s[i] in keep.values():
                 print("val:", s[i])
                 print("compare:",mystack[-1])
-                if mystack[-1] is not s[i]:
+                if keep[mystack[-1]] is not s[i]:
                     return False
                 else:
                     mystack.pop()
