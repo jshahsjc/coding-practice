@@ -46,6 +46,7 @@ def validpar(s):
     for i in range(len(s)):
         if s[i] in keep:
             mystack.append(s[i])
+            print (mystack)
         else:
             if s[i] in keep.values():
                 if mystack[-1] is not s[i]:
