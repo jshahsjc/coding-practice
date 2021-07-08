@@ -14,7 +14,7 @@ from collections import defaultdict
 def subArraySumK(A, k):
     currSum = 0
     count = 0
-    keep = defaultdict(lambda: 0)
+    keep = defaultdict(int)
 
     for i in range(len(A)):
         currSum += A[i]
