@@ -25,8 +25,7 @@ Constraints:
 
 def twoSum(A, t):
     """
-    A: list
-    t: int
+    find two numbers from A that would sum equals t
     """
     comps = {}
     for i in range(len(A)):
@@ -34,24 +33,22 @@ def twoSum(A, t):
         if comp not in comps:
             comps[A[i]] = i
         else:
-            return [A[i], A[comps[comp]]
+            return [A[i], A[comps[comp]]]
     return []
 
 def threeSum(nums):
     i = 0
     res = []
     while i < len(nums):
-        triplet = []
-        triplet.append(nums[i])
-        target = 0 - nums[i]
+        triplets = []
+        triplets.append(nums[i])
         templist = nums[:i] + nums[(i + 1):]
-        triplet += twoSum(templist, target)
-        if len(triplet) == 3 and sorted(triplet) not in res:
-            res.append(sorted(triplet))
+        target = 0 - nums[i]
+        triplets += twoSum(templist, target)
+        if len(triplets) == 3 and sorted(triplets) not in res:
+            res.append(sorted(triplets))
         i += 1
     return res
 
-
 nums = [-1,0,1,2,-1,-4]
-test = threeSum(nums)
-print (test)
+print threeSum(nums)
