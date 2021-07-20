@@ -20,8 +20,8 @@ def findTax(salary, slabs):
     total_tax = 0
     # while non_taxed >= 0:
     for slab in slabs:
-        # count tax paid per slab until either the last default 'Null' slab is hit
-        # or the non taxed amount is more than zero
+        # count tax paid per slab until either the last default 'None' slab is hit
+        # and the non taxed amount is more than zero
         if slab[0] != None and non_taxed > 0:
             slab_amt = min((slab[0] - taxed), non_taxed)
         #    keep[slab[0]] = slab_amt * slab[1]
