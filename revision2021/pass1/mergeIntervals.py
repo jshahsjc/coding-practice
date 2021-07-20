@@ -35,6 +35,7 @@ def mergeIntervals(intervals):
         else:
             output.append([intervals[j]])
             i = j
+            j += 1
 
     return output
 
