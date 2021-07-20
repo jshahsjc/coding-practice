@@ -29,7 +29,7 @@ def mergeIntervals(intervals):
         return intervals
 
     while j < len(intervals):
-        if intervals[j][0] < intervals[i][1]:
+        if intervals[j][0] <= intervals[i][1]:
             output.append([intervals[i][0], intervals[j][1]])
             j += 1
         else:
