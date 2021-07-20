@@ -33,7 +33,7 @@ def mergeIntervals(intervals):
             output.append([intervals[i][0], intervals[j][1]])
             j += 1
         else:
-            output.append([intervals[j]])
+            output.append(intervals[j])
             i = j
             j += 1
 
