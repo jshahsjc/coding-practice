@@ -11,7 +11,7 @@ Then the tax will be:
 [3:02 PM, 11/14/2019] Shrinidhi: ++++
 Calculate the tax
 """
-from collections import defaultdict
+#from collections import defaultdict
 
 def findTax(salary, slabs):
 #    keep = defaultdict()
