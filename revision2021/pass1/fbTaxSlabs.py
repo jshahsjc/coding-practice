@@ -18,7 +18,7 @@ def findTax(salary, slabs):
     taxed = 0
     non_taxed = salary
     total_tax = 0
-    # while non_taxed >= 0:
+
     for slab in slabs:
         # count tax paid per slab until either the last default 'None' slab is hit
         # and the non taxed amount is more than zero
