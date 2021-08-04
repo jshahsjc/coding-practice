@@ -1,5 +1,5 @@
 class Tree:
-   def __init__(self, node, left=None, right=None):
+   def __init__(self, node, left = None, right = None):
       self.val = node
       self.left = left
       self.right = right
@@ -68,7 +68,7 @@ class Tree:
             res.append(self.left.preorder())
          if self.right:
             res.append(self.right.preorder())
-         return res
+      return res
 
    def inorder(self):
       res = []
@@ -94,7 +94,7 @@ class Solution(Tree):
          if root.right:
             right_height = root.right.getheight()
          root_path = 1 + left_height + right_height
-         sub_path =                                               max(self.getdiameter(root.left),                                        self.getdiameter(root.right))
+         sub_path = max(self.getdiameter(root.left), self.getdiameter(root.right))
          return max(root_path, sub_path)
       else:
          return 0
