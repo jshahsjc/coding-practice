@@ -83,8 +83,8 @@ def get_bipedals_by_speed(datafiles):
         dino_speed = get_speed(keep[name]["stride_len"], keep[name]["leg_len"])
         keep[name]["speed"] = dino_speed
 
-    for dino in sorted(keep, key = lambda x: x["speed"], reverse = True):
-        print(dino)
+    for dino in sorted(keep.items(), key = lambda x: x[1]["speed"], reverse = True):
+        print(dino[0])
 
 
 dino_files = ["csv1.csv", "csv2.csv"]

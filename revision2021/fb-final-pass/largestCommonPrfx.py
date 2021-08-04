@@ -22,12 +22,11 @@ strs[i] consists of only lower-case English letters.
 
 def commonPrefix(strs):
     strs = sorted(strs, key = lambda x: len(x))
-    base_len = len(strs[0])
     res = strs[0]
 
     for str in strs[1:]:
-        if str[:base_len] != res:
-            res = res.strip[res[-1]]
+        if str[:len(res)] != res:
+            res = res[:-1]]
         if len(res) == 0:
             return ""
 

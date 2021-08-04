@@ -40,12 +40,11 @@ def alien_dict_check(words, order):
         word2 = words[i + 1]
         tlen = min(len(word1), len(word2))
 
-
         if word1[:tlen] == word2[:tlen] and len(word1) > len(word2):
             return False
         else:
             for t in range(tlen):
-                if order_dict[word1[t]] < order_dict[word2[t]]:
+                if order_dict[word1[t]] > order_dict[word2[t]]:
                     return False
 
         i += 1
