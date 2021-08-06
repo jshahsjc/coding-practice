@@ -81,3 +81,76 @@ class Tree:
             if self.right:
                 res.append(self.right.inorder())
         return res
+
+
+class Solution:
+    def getHeight(self, root):
+        """
+        Suppose getheight method is not included in the Tree class
+        Use this function to achieve desired outcome
+        """
+        if root is not None:
+            if root.left is not None and root.right is not None:
+                return 1 + max(self.getHeight(root.left), self.getHeight(root.right))
+            elif root.left:
+                return 1 + self.getHeight(root.left)
+            elif root.right:
+                return 1 + self.getHeight(root.right)
+            else:
+                return 1
+        else:
+            return 0
+
+    def getDiameter(self, root):
+        """
+        root: Tree Node
+        return: int
+        """
+        if root is not None:
+            left_height = self.getHeight(root.left)
+            right_height = self.getHeight(root.right)
+            root_path_dia = 1 + left_height + right_height
+            max_sub_path_dia = max(self.getDiameter(root.left), self.getDiameter(root.right))
+            return max(root_path, max_sub_path)
+        else:
+            return 0
+
+    def iterativePreorder(self, root):
+        """
+        use stack
+        1. push root
+        while stack is not empty:
+        2. pop from stack and print element
+        3. push children of popped element
+
+        """
+        if root is None:
+            return
+
+        mystack = []
+        mystack.append(root)
+
+        while len(mystack) > 0:
+            current = mystack.pop()
+            print(current.val, end = ' ')
+
+            if current.right is not None:
+                mystack.append(current.right)
+
+            if current.left is not None:
+                mystack.append(current.left)
+
+    def iterativeInorder(self, root):
+        mystack = []
+        current = root
+        while True:
+            if current is not None:
+                mystack.append(current)
+                current = current.left
+
+            elif len(mystack) > 0:
+                current = mystack.pop()
+                print(current.val, end = ' ')
+                current = current.right
+            else:
+                break

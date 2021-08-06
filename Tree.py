@@ -110,7 +110,7 @@ class Solution(Tree):
          if root is not None:
             path += str(root.val) #start with root
             if root.left is None and root.right is None:
-               self.paths.append(path)  #leaf node found, add path to puths
+               self.paths.append(path)  #leaf node found, add path to paths
             else:
                path += '-->'  # extend current path to left and right
                constructPaths(root.left, path)
