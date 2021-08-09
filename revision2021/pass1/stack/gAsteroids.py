@@ -36,24 +36,28 @@ Constraints:
 -1000 <= asteroids[i] <= 1000
 asteroids[i] != 0
 """
+"""
+Can't solve this problem without knowing while loop with continue, break and else statement
+Check below link for reference:
+https://realpython.com/python-while-loop/
+"""
 
-def asteroids(astrd = []):
+
+def collision_check(a_row):
     a_stack = []
-    for i in range(len(astrd)):
-        if astrd[i] > 0:
-            a_stack.append(i)
+    for a in a_row:
+        while a_stack and a_stack[-1] > 0 > a:
+            if abs(a_stack[-1]) < abs(a):
+                a_stack.pop()
+                continue  # Continue to next element in stack for comparison
+            elif abs(a_stack[-1]) == abs(a):
+                a_stack.pop()
+            break  # while loop is ended by break, so else block won't execute and nothing will get appended to stack
         else:
-            check = astrd[a_stack[-1]]
-            if abs(check) > abs(astrd[i]):
-                del astrd[i]
+            a_stack.append(a)  # while loop will break naturally by condition not being satisfied, new element will be appended to stack
 
-            elif abs(check) == abs(astrd[i]):
-                del astrd[i]
-                astrd.remove(check)
-                a_stack.pop()
+    return a_stack
 
-            else:
-                astrd.remove(check)
-                a_stack.pop()
-
-    return astrd
+T = [[10,2,-5], [-2,-1,1,2], [8,-8], [5,10,-5]]
+for t in T:
+    print("In:", t, "Out:", asteroids(t))
