@@ -27,7 +27,6 @@ rec1 and rec2 represent a valid rectangle with a non-zero area.
 """
 
 
-
 def recOverlap(rec1, rec2):
     #rec1_x = (rec1[0], rec1[2])
     #rec1_y = (rec1[1], rec1[3])
