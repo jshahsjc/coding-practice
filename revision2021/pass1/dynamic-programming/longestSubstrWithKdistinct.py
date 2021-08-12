@@ -14,7 +14,6 @@ Input: s = "aa", k = 1
 Output: 2
 Explanation: The substring is "aa" with length 2.
 
-
 Constraints:
 
 1 <= s.length <= 5 * 104
