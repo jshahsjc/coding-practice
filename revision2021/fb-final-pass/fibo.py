@@ -1,11 +1,9 @@
 def fibo(n):
-    fib = [ 0, 1 ]
-    if n == 2:
-        return fib
-    if n <= 1:
-        return 0
-    for i in range(2, n):
-        val = fib[i - 1] + fib[i - 2]
-        fib.append(val)
-
-    return fib
+    def fibo_mem(num, fib_cache):
+        if num in fib_cache:
+            return fib_cache[num]
+        val = fibo_mem(num - 1, fib_cache) + fibo_mem(num - 2, fib_cache)
+        fib_cache[num] = val
+        return val
+    fib_cache = { 1:1, 2:1 }
+    return fibo_mem(n, fib_cache)
