@@ -41,6 +41,22 @@ def longestSubStrWithKdist(s, k):
             delIndx = min(currWindow.values())
             del currWindow[s[delIndx]]
             i += 1
+            print((i, j))
         maxlen = max(maxlen, (j - i))
-
     return maxlen
+
+
+
+from collecitons import defaultdict
+def longestSubStrWithKdist(strs, k):
+    keep = defaultdict()
+    i = 0
+    max_len = 0
+    for j in range(len(strs)):
+        keep[strs[j]] = j
+        if len(keep) > k:
+            d_indx = min(keep.values())
+            del keep[strs[d_indx]]
+            i += 1
+        max_len = max(max_len, j - i)
+    return max_len

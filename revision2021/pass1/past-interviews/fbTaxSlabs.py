@@ -2,7 +2,7 @@
 [2:58 PM, 11/14/2019] Shrinidhi: You are given a list of triples
 [2:58 PM, 11/14/2019] Shrinidhi: Tuples*
 [2:58 PM, 11/14/2019] Shrinidhi: Which contains the salary slabs
-[2:58 PM, 11/14/2019] Shrinidhi: And the salary percentage
+[2:58 PM, 11/14/2019] Shrinidhi: And the tax percentage
 [2:58 PM, 11/14/2019] Shrinidhi: Calculate the tax based on input salary
 [3:00 PM, 11/14/2019] Shrinidhi: Say you are given [(10000,0.1),(25000,0.3),(40000,0.4),(None,0.5)]
 [3:01 PM, 11/14/2019] Shrinidhi: If say salary is 90000
@@ -44,3 +44,30 @@ def findTax(salary, slabs):
 
 slabs =  [(10000,0.1),(25000,0.3),(40000,0.4),(None,0.5)]
 print(findTax(90000, slabs))
+
+
+
+
+
+def countTax(salary, slabs):
+    untaxed = salary
+    taxed = 0
+    tax = 0
+    if salary <= slabs[0][0]:
+        return 0
+    for slab in slabs:
+        if untaxed > 0 and slab[0] is not None:
+            slab_amt = min((slab[0] - taxed), untaxed)
+            slab_tax = slab_amt * slab[1]
+            tax += slab_tax
+            taxed += slab_amt
+            untaxed -= slab_amt
+        if untaxed > 0 and slab[0] is None:
+            slab_amt = untaxed
+            slab_tax = slab_amt * slab[1]
+            tax += slab_tax
+            taxed += slab_amt
+            untaxed -= slab_amt
+        if untaxed == 0:
+            break
+    return tax

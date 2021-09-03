@@ -31,3 +31,15 @@ def getImportance(employees, query_id):
         return employee.importance + sum( dfs(s_id) for s_id in employee.subordinates )
 
     return dfs(query_id)
+
+
+def employeeImportance(employees, q_id):
+    e_dict = { e[0]: e for e in employees }
+    def dfs(e_id):
+        emp = e_dict[e_id]
+        importance = emp[1]
+        subordinates = emp[2]
+        for s in subordinates:
+            importance += dfs(s)
+        return importance
+    return dfs(q_id)

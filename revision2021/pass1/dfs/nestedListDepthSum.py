@@ -69,12 +69,26 @@ class Solution(object):
          else:
             for nested_int in nested_list:
                if nested_int.isInteger():
-                  self.ans += (depth + 1) * nested_int.getInteger()
+                  self.ans += depth * nested_int.getInteger()
                else:
                   getDepthSum(nested_int.getList(), (depth + 1))
             return self.ans
 
       self.ans = 0
-      return getDepthSum(nestedList, 0)
+      return getDepthSum(nestedList, 1)
 
 nList = [[1,1],2,[1,1]]
+
+
+def nestedDepthSum(nested_list):
+	res = 0
+	def dfs(nested_list, depth):
+		if not nested_list:
+			return 0
+		for n in nested_list:
+			if n.isInteger():
+				res += n.getInteger() * depth
+			else:
+				dfs(n.getList(), depth + 1)
+	dfs(nested_list, 1)
+	return res

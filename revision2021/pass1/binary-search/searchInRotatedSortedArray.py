@@ -39,3 +39,26 @@ def searchInRotatedSortedArray(nums, k):
                 lo = mid + 1
             else:
                 hi = mid - 1
+    return -1
+
+
+def searchInRotatedSortedArray(nums, k):
+    if len(nums) == 1:
+        return nums
+    lo = 0
+    hi = len(nums) - 1
+    while lo <= hi:
+        mid = lo + hi // 2
+        if nums[mid] == k:
+            return mid
+        if nums[mid] > nums[lo]:
+            if nums[lo] <= k < nums[mid]:
+                hi = mid - 1
+            else:
+                lo = mid + 1
+        else:
+            if nums[mid] < k <= nums[hi]:
+                lo = mid + 1
+            else:
+                hi = mid - 1
+    return -1

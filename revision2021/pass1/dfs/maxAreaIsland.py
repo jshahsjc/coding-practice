@@ -35,8 +35,9 @@ def getMaxAreaIsland(grid):
     seen = set()
     max_area = 0
     def dfs_area(r, c):
-        if (0 <= r <= len(grid)) \
-            and (0 <= c <= len(grid[0])) \
+        area = 0
+        if (0 <= r < len(grid)) \
+            and (0 <= c < len(grid[0])) \
             and ((r,c) not in seen) \
             and (r, c) == 1:
             seen.add((r,c))
@@ -49,4 +50,32 @@ def getMaxAreaIsland(grid):
             if dfs_area((r, c)) > max_area:
                 max_area = dfs_area((r, c))
 
+    return max_area
+
+
+
+
+
+def maxAreaIsland(grid):
+    rows = len(grid)
+    cols = len(grid[0])
+    max_area = 0
+    def dfs(r, c):
+        my_area = 0
+        if grid[r][c] == 1:
+            my_area += 1
+            grid[r][c] = 0
+            if r - 1 >= 0:
+                my_area += dfs(r - 1, c)
+            if c - 1 >= 0:
+                my_area += dfs(r, c - 1)
+            if r + 1 < rows:
+                my_area += dfs(r + 1, c)
+            if c + 1 < cols:
+                my_area += dfs(r, c + 1)
+        return my_area
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == 1:
+                max_area = max(max_area, dfs(r, c))
     return max_area

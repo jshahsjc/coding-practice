@@ -33,3 +33,22 @@ def firstBadVersion(n):
             hi = mid - 1
         else:
             lo = mid + 1
+
+
+def firstBadVersion(nums):
+    if len(nums) > 1:
+        lo = 0
+        hi = len(nums) - 1
+
+        while lo <= hi:
+            mid = lo + hi // 2
+            if isBadVersion(mid):
+                if not isBadVersion(mid - 1):
+                    return mid
+                else:
+                    hi = mid - 1
+            else:
+                if isBadVersion(mid + 1):
+                    return mid + 1
+                else:
+                    lo = mid + 1

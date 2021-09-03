@@ -28,3 +28,19 @@ def productXself(A):
     return answer
 
 print (productXself([1,2,3,4]))
+
+def productExceptSelf(A):
+    left_prods = [1] * len(A)
+    right_prods = [1] * len(A)
+    mul = 1
+    res = [0] * len(A)
+    for i in range(1, len(A)):
+        left_prod[i] = A[i - 1] * left_prod[i - 1]
+
+    for i in reversed(range(len(A) - 1)):
+        right_prods[i] = right_prods[i + 1] * A[i + 1]
+
+    for i in range(len(res)):
+        res[i] = left_prod[i] * right_prod[i]
+
+    return res

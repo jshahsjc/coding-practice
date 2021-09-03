@@ -44,3 +44,15 @@ print(mergeIntervals(intervals))
 
 intervals = [[1,4],[4,5]]
 print(mergeIntervals(intervals))
+
+
+
+def mergeIntervals(nums):
+    nums = sorted( nums, key  = lambda x: x[0] )
+    j = 1
+    while j < len(nums):
+        if nums[j][0] <= nums[j - 1][1]:
+            nums[j - 1][1] = nums[j][1]
+            del nums[j]
+        j += 1
+    return nums

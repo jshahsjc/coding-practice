@@ -42,3 +42,16 @@ def longestSubStrNoRepeat(s):
     return maxlen
 
 print longestSubStrNoRepeat("pwwkew")
+
+
+
+def longestSubStrNoRepeat(strs):
+    i = 0
+    max_len = 0
+    keep = defaultdict()
+    for j in range(len(strs)):
+        if strs[j] in keep:
+            i = strs[j]
+        max_len = max(max_len, j - i + 1)
+        keep[strs[j]] = j + 1
+    return max_len

@@ -1,8 +1,6 @@
 """
 735. Asteroid Collision
 
-Add to List
-
 We are given an array asteroids of integers representing asteroids in a row.
 
 For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.
@@ -61,3 +59,20 @@ def collision_check(a_row):
 T = [[10,2,-5], [-2,-1,1,2], [8,-8], [5,10,-5]]
 for t in T:
     print("In:", t, "Out:", asteroids(t))
+
+
+
+def asteroids(nums):
+    my_stack = []
+    for n in nums:
+        while my_stack and my_stack[-1] > 0 and n < 0:
+            if abs(my_stack[-1]) < abs(n):
+                my_stack.pop()
+                continue
+            elif abs(my_stack[-1]) == abs(n):
+                my_stack.pop()
+                break
+        else:
+            my_stack.append(n)
+    return my_stack
+    

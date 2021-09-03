@@ -69,3 +69,51 @@ def meetingRooms(intervals):
 intervals = [[0,30],[5,10],[15,20]]
 
 print (meetingRooms(intervals))
+
+
+def meetingRooms(intvls):
+    if not intvls:
+        return 0
+    used_rooms = 0
+    starts = sorted( x[0] for x in intvls )
+    ends = sorted( x[1] for x in intvls )
+    s = 0
+    e = 0
+    while s < len(starts) and e < len(ends):
+        if starts[s] < ends[e]:
+            used_rooms += 1
+            s += 1
+        else:
+            used_rooms -= 1
+            e += 1
+    return used_rooms
+
+
+
+def meetingRooms(intvs):
+    starts = sorted(x[0] for x in intvs)
+    ends = sorted(x[1] for x in intvs)
+    s = e = 0
+    used_rooms = 0
+    while s < len(starts):
+        if starts[s] >= ends[e]:
+            used_rooms -= 1
+            e += 1
+        used_rooms += 1
+        s += 1
+    return used_rooms
+
+
+
+def meetingRooms(intvls):
+    starts = sorted( x[0] for x in intvls )
+    ends = sorted( x[1] for x in intvls )
+    s = e = 0
+    used_rooms = 0
+    while s < len(starts):
+        if starts[s] >= ends[e]:
+            used_rooms -= 1
+            e += 1
+        used_rooms += 1
+        s += 1
+    return used_rooms

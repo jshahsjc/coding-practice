@@ -28,3 +28,22 @@ n == image[i].length
 0 <= sr < m
 0 <= sc < n
 """
+
+def fillColor(image, sr, sc, new_color):
+    i = j = 0
+    rows = len(image)
+    cols = len(image[0])
+    match_color = image[sr][sc]
+    def dfs(r, c):
+        if image[r, c] == match_color:
+            image[r, c] = new_color
+        if r - 1 >= 0:
+            dfs(r -1, c)
+        if r + 1 < R:
+            dfs(r + 1, c)
+        if c - 1 >= 0:
+            dfs(r, c - 1)
+        if c + 1 < cols:
+            dfs(r, c + 1)
+    dfs(sr, sc)
+    return image

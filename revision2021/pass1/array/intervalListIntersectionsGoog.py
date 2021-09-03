@@ -60,3 +60,18 @@ fl =[[1,3],[5,9]]
 sl = [[4,8],[10,12]]
 
 print findIntervalIntersect(fl, sl)
+
+
+def intervalIntersects(fl, sl):
+    i = j = 0
+    res = []
+    while i < len(fl) and j < len(sl):
+        left_edge = max(fl[i][0], sl[j][0])
+        right_edge = min(fl[i][1], sl[j][1])
+        if left_edge <= right_edge:
+            res.append((left_edge, right_edge))
+        if fl[i][1] < sl[j][1]:
+            i += 1
+        else:
+            j += 1
+        return result
