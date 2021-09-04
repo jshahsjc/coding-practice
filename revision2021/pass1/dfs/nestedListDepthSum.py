@@ -57,6 +57,9 @@ Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 +
 #        :rtype List[NestedInteger]
 #        """
 
+
+
+
 class Solution(object):
    def depthSum(self, nestedList):
       """
@@ -79,16 +82,19 @@ class Solution(object):
 
 nList = [[1,1],2,[1,1]]
 
+"""
+Alternate solution with simple native python constructs.
+"""
 
-def nestedDepthSum(nested_list):
-	res = 0
-	def dfs(nested_list, depth):
-		if not nested_list:
-			return 0
-		for n in nested_list:
-			if n.isInteger():
-				res += n.getInteger() * depth
-			else:
-				dfs(n.getList(), depth + 1)
-	dfs(nested_list, 1)
-	return res
+def nestedListDepthSum(n_list):
+    if not n_list:
+        return -1
+    def dfs(n_list, d):
+        res = 0
+        for n in n_list:
+            if isinstance(n, list):
+                res += dfs(n, d + 1)
+            if isinstance(n, int):
+                res += (n * d)
+        return res
+    return dfs(n_list, 1)
