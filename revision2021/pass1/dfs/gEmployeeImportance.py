@@ -33,6 +33,26 @@ def getImportance(employees, query_id):
     return dfs(query_id)
 
 
+"""
+Alternate solution:
+Input: employees = [[1,5,[2,3]],[2,3,[]],[3,3,[]]], id = 1
+Output: 11
+"""
+
+def employeeImportance(employees, q_id):
+    keep = { e[0]: e for e in employees }
+    def dfs(e_id):
+        e = keep[e_id]
+        e_imp = e[1]
+        e_sub = e[2]
+        if not e_sub:
+            return e_imp
+        for s_id in e_sub:
+            e_imp += dfs(s_id)
+        return e_imp
+    return dfs(q_id)
+
+
 def employeeImportance(employees, q_id):
     e_dict = { e[0]: e for e in employees }
     def dfs(e_id):
