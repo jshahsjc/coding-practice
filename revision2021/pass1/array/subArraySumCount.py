@@ -9,6 +9,54 @@ The length of the array is in range [1, 20,000].
 The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
 """
 
+from collections import defaultdict
+def subArraySumK(nums, k):
+    keep = defaultdict(int)
+    sum = 0
+    count = 0
+    for i, n in enumerate(nums):
+        sum += n
+        if sum == k:
+            count += 1
+            print("index:", i)
+        if sum - k in keep:
+            count += 1
+            print("index:", i)
+        keep[sum] = i
+    return count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def subArraySum(A, sum):
     if len(A) in range(1, 20001):
         count = 0

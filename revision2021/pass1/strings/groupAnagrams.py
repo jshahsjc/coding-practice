@@ -15,6 +15,47 @@ Note:
 All inputs will be in lowercase.
 The order of your output does not matter.
 """
+
+
+from collections import defaultdict
+def groupAnagrams(in_list):
+    keep = defaultdict(list)
+    for word in in_list:
+        keep[tuple(sorted(word))].append(word)
+    return keep.values()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 from collections import  defaultdict
 
 def anagram_buckets(words):

@@ -36,7 +36,7 @@ from collections import defaultdict
 
 def get_speed(str_len, leg_len):
     str_len = float(str_len)
-    leg_len = float(len_len)
+    leg_len = float(leg_len)
     dino_speed = ((str_len/leg_len) - 1) * sqrt(leg_len * 9.8)
     return dino_speed
 

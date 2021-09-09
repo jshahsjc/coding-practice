@@ -20,6 +20,46 @@ nums is sorted in non-decreasing order.
 """
 
 def sortedSquares(nums):
+    i = 0
+    j = len(nums) - 1
+    k = len(nums) - 1
+    res = [0] * len(nums)
+    while i < j:
+        if abs(nums[i]) > abs(nums[j]):
+            sq = nums[i]
+            i += 1
+        else:
+            sq = nums[j]
+            j -= 1
+        res[k] = sq * sq
+        k -= 1
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def sortedSquares(nums):
     left = 0
     right = len(nums) - 1
     res = [0] * len(nums)

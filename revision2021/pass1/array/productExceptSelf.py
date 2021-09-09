@@ -13,7 +13,33 @@ Follow up:
 Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
 """
 
-# First simple o(n^2) solution:
+
+def productExceptSelf(nums):
+    res = [0] * len(nums)
+    left_products = [1] * len(nums)
+    right_products = [1] * len(nums)
+    mul = 1
+    for n in range(1, len(nums)):
+        left_products[n] = left_products[n - 1] * nums[n - 1]
+    for n in reversed(range(len(nums) -  1)):
+        right_products[n] = right_products[n + 1] * nums[n + 1]
+    for n in range(len(nums)):
+        res[n] = left_products[n] * right_products[n]
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  o(n^2) solution:
 def productXself(A):
     tmpA = []
     answer = []

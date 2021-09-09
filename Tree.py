@@ -116,7 +116,7 @@ class Solution(Tree):
                constructPaths(root.left, path)
                constructPaths(root.right, path)
 
-      constructPaths(root)
+      constructPaths(root, '')
       return self.paths
 
    def rangeSumBST(self, root, L, R):

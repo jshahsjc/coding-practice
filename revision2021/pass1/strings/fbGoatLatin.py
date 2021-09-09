@@ -25,11 +25,26 @@ Input: "The quick brown fox jumped over the lazy dog"
 Output: "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"
 """
 
+def goatLatin(in_str):
+    in_list = in_str.split()
+    for i, item in enumerate(in_list):
+        if item[0] in 'aeiouAEIOU':
+            in_list[i] = item + 'ma' + ((i + 1) * 'a')
+        else:
+            in_list[i] = item[1:] + item[0] + 'ma' + ((i + 1) * 'a')
+    return " ".join(in_list)
+
+
+
+
+
+
+
 def goatLatin(S):
     # convert the sentence into the list
     L = S.split()
     # create empty list to store values
-    # This is important since the word 
+    # This is important since the word
     # or a string is an immutable object
     # Hence, we cannot update the word in place
     goatL = []

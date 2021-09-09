@@ -20,6 +20,29 @@ intervals[i].length == 2
 0 <= starti <= endi <= 104
 """
 
+def mergeIntervals(ivls):
+    res = []
+    res.append(ivls[0])
+    for i in range(1, len(ivls)):
+        if ivls[i][0] < res[-1][1]:
+            res[-1][1] = ivls[i][1]
+        else:
+            res.append(ivls[i])
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def mergeIntervals(intervals):
     intervals = sorted(intervals, key = lambda x: x[0])
     i = 0

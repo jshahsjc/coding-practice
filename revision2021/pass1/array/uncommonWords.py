@@ -25,6 +25,39 @@ from collections import defaultdict
 def uncommonWords(s1, s2):
     s1 = s1.split()
     s2 = s2.split()
+    s1_dict = defaultdict(int)
+    s2_dict = defaultdict(int)
+    res = []
+    for s in s1:
+        s1_dict[s] += 1
+    for s in s2:
+        s2_dict[s] += 1
+    for k, v in s1_dict.items():
+        if v == 1 and k not in s2_dict:
+            res.append(k)
+    for k, v in s2_dict.items():
+        if v == 1 and k not in s1_dict:
+            res.append(k)
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from collections import defaultdict
+def uncommonWords(s1, s2):
+    s1 = s1.split()
+    s2 = s2.split()
     if len(s1) > len(s2):
         return uncommonWords(s2, s1)
     s1_dict = defaultdict()

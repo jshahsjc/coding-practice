@@ -44,6 +44,50 @@ Space Complexity: O(N)O(N) because we create two separate arrays of size NN, one
 
 """
 
+
+def meetingRooms(intervals):
+    start_times = sorted(x[0] for x in intervals)
+    end_times = sorted(x[1] for x in intervals)
+    start_p = end_p = 0
+    used_rooms = 0
+    while start_p < len(start_times):
+        if starts_times[start_p] >= end_times[end_p]:
+            used_rooms -= 1
+            end_p += 1
+        used_rooms += 1
+        start_p += 1
+    return used_rooms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def meetingRooms(intervals):
     if not intervals:
         return 0

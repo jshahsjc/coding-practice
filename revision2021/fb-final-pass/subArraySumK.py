@@ -11,11 +11,12 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 from collections import defaultdict
 def subArraySumK(nums, k):
     keep = defaultdict(int)
+    keep[k] = 0
     currSum = 0
     for i in range(len(nums)):
         currSum += nums[i]
         if currSum == k:
-            keep[k] = 1
+            keep[k] += 1
         if currSum - k in keep:
             keep[k] += 1
         else:

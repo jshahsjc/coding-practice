@@ -19,3 +19,6 @@ def twoSum(nums, target):
                 return (i, j)
         else:
             i += 1
+
+nums = [2, 7, 11, 15]
+target = 9

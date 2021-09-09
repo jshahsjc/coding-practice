@@ -42,7 +42,7 @@ class Logger:
         self.logs = {}
 
     def shouldPrintMessage(self, timestamp, message):
-        if messages not in self.logs:
+        if message not in self.logs:
             self.logs[message] = timestamp
             return True
         if timestamp - self.logs[message] >= 10:

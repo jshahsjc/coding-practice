@@ -29,23 +29,78 @@ Constraints:
 1 <= s.length <= 100
 s contains only lower case English letters and '?'.
 """
-from collections import defaultdict
 
-def replaceQmark(s):
-    s = list(s)
-    chars = 'abcdefghijklmnopqrstuvwxyz'
-
-    while s.count("?") is not 0:
-        indx = s.index("?")
-        prev = s[indx - 1] if indx > 0 else ''
-        next = s[indx + 1] if indx < len(s) - 1 else ''
-
-        for c in chars:
-            if c is not prev and c is not next:
-                s[indx] = c
+def removeQ(instr):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    inlist = list(instr)
+    while inlist.count('?') > 0:
+        qindx = inlist.index('?')
+        prev = inlist[qindx - 1] if qindx > 0 else ''
+        next = inlist[qindx + 1] if qindx < len(inlist) - 1 else ''
+        for char in alphabet:
+            if char is not prev and char is not next:
+                inlist[qindx] = char
                 break
+    return "".join(inlist)
 
-    return "".join(s)
+
+
+
+
+
+
+
+#####  Worst solution below #####
+
+def removeQ(in_str):
+    res = ""
+    alphabet = 'abcdefghijklmnopqrstuvwxyz?'
+    if len(in_str) == 1 and in_str[0] == "?":
+        return 'a'
+    if len(in_str) == 0:
+        return ""
+    for i in range(len(in_str)):
+        if in_str[i] != '?':
+            res += in_str[i]
+        elif i == len(in_str) - 1 and in_str[i] == '?':
+            for char in alphabet:
+                if char != res[-1]:
+                    res += char
+                    break
+        elif in_str[i] == '?' and res != "":
+            for char in alphabet:
+                if char != res[-1] and char != in_str[i + 1]:
+                    res += char
+                    break
+        elif in_str[i] == '?' and res == "":
+            for char in alphabet:
+                if char != in_str[i + 1]:
+                    res += char
+                    break
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 print (replaceQmark("?zs"))
 print(replaceQmark("ubv?w"))

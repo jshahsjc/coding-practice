@@ -28,6 +28,39 @@ Output: true
 """
 
 def oneEditDist(s, t):
+    if len(s) > len(t):
+        return oneEditDist(t, s)
+    if len(t) - len(s) > 1:
+        return False
+    if s == t:
+        return False
+    if len(s) == len(t) and s != t:
+        for i in range(len(s)):
+            if s[i] != t[i] and s[i + 1:] != t[i + 1]:
+                return False
+    if len(t) - len(s) == 1:
+        for i in range(len(s)):
+            if s[i] != t[i] and s[i:] != t[i + 1:]:
+                return False
+    return True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def oneEditDist(s, t):
     """
     s, t: input strings
     rtype: bool

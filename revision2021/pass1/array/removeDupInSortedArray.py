@@ -20,6 +20,34 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 """
 
+def removeDups(nums):
+    i = 0
+    for j in range(1, len(nums)):
+        if nums[i] == nums[j]:
+            continue
+        else:
+            i += 1
+            nums[i], nums[j] = nums[j], nums[i]
+    return i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def removeDups(A):
     i = 0
     j = 1

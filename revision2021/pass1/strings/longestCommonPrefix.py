@@ -20,6 +20,45 @@ Constraints:
 strs[i] consists of only lower-case English letters.
 """
 
+def commonPrefix(in_list):
+    in_list = sorted(in_list, key = lambda x: len(x))
+    res = in_list[0]
+    for word in in_list[1:]:
+        if not res:
+            return ""
+        while len(res) > 0:
+            if res != word[:len(res)]:
+                res = res[:len(res) - 1]
+            else:
+                break
+    return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def longestCommonPrefix(strs):
     if len(strs) <= 1:
         return strs

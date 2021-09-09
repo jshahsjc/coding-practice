@@ -28,6 +28,36 @@ All characters in words[i] and order are English lowercase letters.
 '''
 
 def alienDictCheck(words, order):
+    order_dict = { v: i for i, v in enumerate(order) }
+
+    for i in range(len(words) - 1):
+        word1 = words[i]
+        word2 = words[i + 1]
+        tlen = min(len(word1), len(word2))
+        for t in range(tlen):
+            if order_dict[word1[t]] > order_dict[word2[t]]:
+                return False
+        if len(word1) > len(word2):
+            if word1[:tlen] == word2:
+                return False
+
+    return True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def alienDictCheck(words, order):
     # result bool, default is sorted
     isSorted = True
     # Build order dictionary

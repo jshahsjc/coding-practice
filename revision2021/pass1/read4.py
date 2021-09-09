@@ -11,14 +11,6 @@ def read(buf, n):
     buf4 = [' '] * 4
     buf = []
     rcount = 0
-    # Cases to handle
-    # file size is less than n
-        # file size multiple of 4
-        # file size not multiple of 4
-
-    # file size is greater than n
-        # file size multiple of 4
-        # file size not multiple of 4
     b4cnt = 4
 
     while rcount < n:

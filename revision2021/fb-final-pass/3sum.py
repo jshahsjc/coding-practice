@@ -24,7 +24,7 @@ Constraints:
 
 def double_sum(nums, t):
     keep = {}
-    for n in len(nums):
+    for n in range(len(nums)):
         comp = t - nums[n]
         if comp not in keep:
             keep[nums[n]] = n
