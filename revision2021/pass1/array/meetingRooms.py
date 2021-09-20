@@ -51,7 +51,7 @@ def meetingRooms(intervals):
     start_p = end_p = 0
     used_rooms = 0
     while start_p < len(start_times):
-        if starts_times[start_p] >= end_times[end_p]:
+        if start_times[start_p] >= end_times[end_p]:
             used_rooms -= 1
             end_p += 1
         used_rooms += 1

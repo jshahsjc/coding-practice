@@ -22,7 +22,9 @@ def getNextIpAddresses(ip, count):
             o2 = o3 = o4 = 0
         else:
             print "None !"
-        print str(o1) + '.' + str(o2) + '.' + str(o3) + '.' + str(o4)
-
-
+        res = str(o1) + '.' + str(o2) + '.' + str(o3) + '.' + str(o4)
+        line1 = 'neighbor ' + res + ' peer group EB-EB-V4'
+        line2 = 'neighbor ' + res + ' description ebb.ibgp.scale.ixia'
+        print(line1)
+        print(line2)
 getNextIpAddresses('1.1.1.1', 10)

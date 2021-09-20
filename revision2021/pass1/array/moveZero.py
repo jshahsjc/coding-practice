@@ -21,6 +21,29 @@ Constraints:
 Follow up: Could you minimize the total number of operations done?
 """
 
+
+
+def moveZero(nums):
+    i = 0
+    for j in range(len(nums)):
+        if nums[j] is not 0:
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+    return nums
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def moveZero(nums):
     i = 0
     j = 1

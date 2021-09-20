@@ -11,6 +11,45 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 """
 
+from collections import defaultdict
+def twoSum(nums, t):
+    keep = defaultdict()
+    for i in range(len(nums)):
+        comp = t - nums[i]
+        if comp in keep:
+            return [keep[comp], i]
+        else:
+            keep[nums[i]] = i
+    return []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def twoSum(nums, target):
     i = 0
     while i < len(nums):
