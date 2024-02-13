@@ -22,7 +22,7 @@ def empImp(employees, id):
     employees: list of list or objects of class employees
     """
     e_dict = { e[0]: e for e in employees }
-    dfs(e_id):
+    def dfs(e_id):
         emp = e_dict[e_id]
         imp = emp[1]
         sub = emp[2]
