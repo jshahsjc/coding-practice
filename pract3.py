@@ -15,11 +15,3 @@ Note:
 All inputs will be in lowercase.
 The order of your output does not matter.
 """
-
-from collections import defaultdict
-
-def groupAnagrams(inList):
-    gAnagrm = defaultdict(list)
-    for word in inList:
-        gAnagrm[tuple(sorted(word))].append(word)
-    return gAnagrm.values()

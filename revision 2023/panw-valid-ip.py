@@ -12,8 +12,6 @@ def validIp(inStr):
                      return False
      return True
 
-
-
 def getIpCombinations(inStr):
 	"""
     IN: "1111"
